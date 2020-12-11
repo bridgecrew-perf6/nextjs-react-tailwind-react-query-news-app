@@ -15,9 +15,7 @@ export default function homeTemplate({ children, title, activeLink }) {
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           {/* <!-- Content goes here --> */}
-          <div className="container my-12 mx-auto px-4 md:px-12">
-            {children}
-          </div>
+          <div className="container mx-auto px-4 md:px-12">{children}</div>
           {/* <!-- /End Content --> */}
         </div>
       </main>
