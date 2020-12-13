@@ -8,7 +8,7 @@ module.exports = withImages({
       {
         source: "/",
         destination: "/top-headlines",
-        permanent: true,
+        permanent,
       },
     ];
   },

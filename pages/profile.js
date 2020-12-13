@@ -19,7 +19,7 @@ export default function profile() {
         // if not empty set to local storage
         if (userObject[property] !== "") {
           localStorage.setItem(property, userObject[property]);
-          success !== true && setSuccess(true);
+          !success && setSuccess(true);
         }
       }
     }
