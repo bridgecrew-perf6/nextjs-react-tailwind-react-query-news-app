@@ -71,13 +71,13 @@ export default function topHeadlines() {
                   // don't open single view if click is on read more
                   if (!e.target.classList.contains("nested_link")) {
                     router.push({
-                      // compose dynamic url made up of hyphen separated publication name and index in response array
-                      // eg /post/the-washington-post?pid=0
-                      pathname: `post/${name
+                      // compose dynamic url made up of hyphen separated publication name, index of article in response array, and article category
+                      // eg /top-headlines/cnn?pid=0&category=headlines
+                      pathname: `top-headlines/${name
                         .toLowerCase()
                         .split(" ")
                         .join("-")}`,
-                      query: { pid: index },
+                      query: { pid: index, category: "headlines" },
                     });
                   }
                 }}
