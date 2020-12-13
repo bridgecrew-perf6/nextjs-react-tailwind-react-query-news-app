@@ -4,6 +4,7 @@ import BrokenImage from "../assets/broken_image.png";
 export default function mediaCard({
   image,
   title,
+  content,
   description,
   author,
   date,
@@ -15,12 +16,12 @@ export default function mediaCard({
       {/* Article image */}
       <img
         alt="article image"
-        className={`"block" ${single ? "h-96 w-max" : "h-48 w-full"}`}
+        className={`flex w-full ${single ? "h-96" : "h-48"}`}
         src={image ? image : BrokenImage}
       />
       <header
         className={`flex items-center mx-auto leading-tight p-2 h-32 ${
-          single ? "lg:h-28" : "lg:h-36"
+          single ? "lg:h-24" : "lg:h-32"
         }`}
       >
         <h1 className="text-lg font-bold mx-auto">
@@ -29,9 +30,25 @@ export default function mediaCard({
         </h1>
       </header>
       <section className="px-4">
-        {/* Article description */}
+        {/* Article content */}
         <p className="text-base">
-          {description ? description : "No Description Found"}
+          {content
+            ? // split the content string between preview and number of remaining characters strings)
+              // discard last part and append a 'read more' url linking to original article
+              `${content.split("…").shift().toString()}… `
+            : description
+            ? `${description}… `
+            : "Content preview not provided… "}
+          {/* Read More Link */}
+          <Link href={url}>
+            {/* the 'nested_link' class is for click bubbling */}
+            <a
+              className="text-sm hover:underline text-purple-800 nested_link"
+              target="_blank"
+            >
+              See More
+            </a>
+          </Link>
         </p>
       </section>
       <footer className="flex items-center justify-between leading-none p-2 md:p-4 h-14">
@@ -39,17 +56,6 @@ export default function mediaCard({
           {/* Article author */}
           <p className="ml-2 text-sm">{author ? author : "No Author Name"}</p>
         </h4>
-        {/* conditional render only on single article views */}
-        {single && (
-          <Link href={url}>
-            <a
-              className="text-sm hover:underline text-purple-800"
-              target="_blank"
-            >
-              Go to news source
-            </a>
-          </Link>
-        )}
         <h4 className=" text-grey-darker hover:text-red-dark">
           {/* Article date */}
           <p className="text-grey-darker text-sm">

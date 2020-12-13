@@ -35,17 +35,23 @@ const Post = () => {
   }
 
   // de-structure from array at index 'pid'
-  // instead of description use content
-  let { urlToImage, title, content, author, publishedAt, url } = data.articles[
-    pid
-  ];
+  let {
+    urlToImage,
+    title,
+    content,
+    description,
+    author,
+    publishedAt,
+    url,
+  } = data.articles[pid];
 
   return (
     <HomeTemplate title="Single Post" activeLink="Single Post">
       <MediaCard
         image={urlToImage}
         title={title}
-        description={content}
+        content={content}
+        description={description}
         author={author}
         date={publishedAt}
         url={url}
