@@ -11,6 +11,11 @@ const Post = () => {
   // get the post index from query params
   const { pid, category } = router.query;
 
+  // get preferred topic from local storage
+  // check for window object incase of SSR
+  let PREFERRED_TOPIC =
+    typeof window !== "undefined" ? localStorage.getItem("newsPreference") : "";
+
   // fetch top headlines
   // already fetched upstream so will be re-fetched from cache
   const {
@@ -25,7 +30,7 @@ const Post = () => {
     isLoading: customNewsFeedLoading,
     isError: customNewsFeedError,
     data: customNewsFeedData,
-  } = useQuery("custom_news_feed", getCustomNewsFeed("bitcoin"));
+  } = useQuery("custom_news_feed", getCustomNewsFeed(PREFERRED_TOPIC));
 
   // conditional template title
   let templateTitle =
