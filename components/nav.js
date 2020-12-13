@@ -5,7 +5,7 @@ import SvgLogo from "../assets/speaker.svg";
 
 const links = [
   { href: "/top-headlines", label: "Top Headlines" },
-  { href: "/news-feed", label: "News Feed" },
+  { href: "/custom-news-feed", label: "Custom News Feed" },
 ];
 
 export default function Nav({ activeLink = "Top Headlines" }) {
