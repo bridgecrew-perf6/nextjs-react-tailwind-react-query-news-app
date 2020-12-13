@@ -36,7 +36,11 @@ export default function Nav({ activeLink = "Top Headlines" }) {
             <Link href="/top-headlines">
               <a>
                 <div className="flex-shrink-0">
-                  <img className="w-16 h-16" src={SvgLogo} alt="Workflow" />
+                  <img
+                    className="w-16 h-16 transform hover:scale-125"
+                    src={SvgLogo}
+                    alt="Workflow"
+                  />
                 </div>
               </a>
             </Link>
