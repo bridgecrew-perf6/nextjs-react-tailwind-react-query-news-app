@@ -1,5 +1,5 @@
-import { QueryCache, useQuery } from "react-query";
-import { dehydrate } from "react-query/hydration";
+import { useQuery } from "react-query";
+// import { dehydrate } from "react-query/hydration";
 import { useRouter } from "next/router";
 import HomeTemplate from "../components/homeTemplate";
 import MediaCard from "../components/mediaCard";
@@ -8,15 +8,15 @@ import Loading from "../components/loading";
 import Error from "../components/error";
 
 // pre-fetch when SSR and rehydrate when served
-export async function getServerSideProps() {
-  const queryCache = new QueryCache();
-  await queryCache.prefetchQuery("top_headlines", getTopHeadlines);
-  return {
-    props: {
-      dehydratedState: dehydrate(queryCache),
-    },
-  };
-}
+// export async function getServerSideProps() {
+//   const queryCache = new QueryCache();
+//   await queryCache.prefetchQuery("top_headlines", getTopHeadlines);
+//   return {
+//     props: {
+//       dehydratedState: dehydrate(queryCache),
+//     },
+//   };
+// }
 
 export default function topHeadlines() {
   const router = useRouter();
