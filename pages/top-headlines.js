@@ -61,22 +61,27 @@ export default function topHeadlines() {
             index
           ) => (
             <div
-              className="uko_wapi my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
+              className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
               key={index}
-              onClick={(e) => {
-                // if click is not on nested 'read more' link
-                // don't open single view if click is on read more
-                if (!e.target.classList.contains("nested_link")) {
-                  router.push({
-                    // compose dynamic url made up of hyphen separated publication name and index in response array
-                    // eg /post/the-washington-post?pid=0
-                    pathname: `post/${name.toLowerCase().split(" ").join("-")}`,
-                    query: { pid: index },
-                  });
-                }
-              }}
             >
-              <a className="cursor-pointer">
+              <span
+                className="cursor-pointer"
+                onClick={(e) => {
+                  // if click is not on nested 'read more' link
+                  // don't open single view if click is on read more
+                  if (!e.target.classList.contains("nested_link")) {
+                    router.push({
+                      // compose dynamic url made up of hyphen separated publication name and index in response array
+                      // eg /post/the-washington-post?pid=0
+                      pathname: `post/${name
+                        .toLowerCase()
+                        .split(" ")
+                        .join("-")}`,
+                      query: { pid: index },
+                    });
+                  }
+                }}
+              >
                 <MediaCard
                   image={urlToImage}
                   title={title}
@@ -86,7 +91,7 @@ export default function topHeadlines() {
                   date={publishedAt}
                   url={url}
                 />
-              </a>
+              </span>
             </div>
           )
         )}
