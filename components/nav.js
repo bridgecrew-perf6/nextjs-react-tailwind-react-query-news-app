@@ -13,6 +13,11 @@ export default function Nav({ activeLink = "Top Headlines" }) {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // get preferred topic from local storage
+  // check for window object incase of SSR
+  let USERNAME =
+    typeof window !== "undefined" ? localStorage.getItem("userName") : "";
+
   // dismiss profile modal by clicking anywhere on the DOM
   useEffect(() => {
     const handleClick = (e) => {
@@ -68,7 +73,10 @@ export default function Nav({ activeLink = "Top Headlines" }) {
             <div className="ml-4 flex items-center md:ml-6">
               {/*  Profile dropdown  */}
               <div className="ml-3 relative">
-                <div>
+                <div className="flex flex-row flex-nowrap space-x-3">
+                  {USERNAME && (
+                    <h3 className="text-sm text-white my-auto">{USERNAME}</h3>
+                  )}
                   <button
                     className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                     id="user-menu"
