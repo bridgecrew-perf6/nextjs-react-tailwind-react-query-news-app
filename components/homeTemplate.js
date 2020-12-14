@@ -1,5 +1,6 @@
 import Nav from "./nav";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function homeTemplate({
   children,
@@ -9,7 +10,7 @@ export default function homeTemplate({
 }) {
   const router = useRouter();
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Nav activeLink={activeLink} />
       <header className="bg-white shadow">
         <div className="flex flex-row flex-nowrap space-x-2 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -43,6 +44,17 @@ export default function homeTemplate({
           {/* <!-- /End Content --> */}
         </div>
       </main>
+      <footer className="flex items-center justify-between leading-none p-2 md:p-4 h-14 mt-auto">
+        <p className="text-grey-darker text-lg mx-auto">
+          &copy;{new Date().getFullYear()}&nbsp;
+          <Link href="http://www.muguku.co.ke/">
+            <a className="hover:underline text-purple-800" target="_blank">
+              Macharia Muguku.{" "}
+            </a>
+          </Link>
+          All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }
