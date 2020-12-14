@@ -47,12 +47,12 @@ const Post = () => {
   }
 
   if (
-    isTopHeadlinesError ||
-    isCustomNewsFeedError ||
-    topHeadlinesData.status === "error" ||
-    customNewsFeedData.status === "error" ||
-    !topHeadlinesData.articles[pid] ||
-    !customNewsFeedData.articles[pid]
+    (category === "headlines" && isTopHeadlinesError) ||
+    (category === "feed" && isCustomNewsFeedError) ||
+    (category === "headlines" && topHeadlinesData.status === "error") ||
+    (category === "feed" && customNewsFeedData.status === "error") ||
+    (category === "headlines" && !topHeadlinesData.articles[pid]) ||
+    (category === "feed" && !customNewsFeedData.articles[pid])
   ) {
     return (
       <HomeTemplate title="Single Post" activeLink={templateTitle}>
