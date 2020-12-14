@@ -15,7 +15,7 @@ export default function mediaCard({
     <article className="overflow-hidden rounded-lg shadow-lg">
       {/* Article image */}
       <img
-        alt="article image"
+        alt="article cover image"
         className={`flex w-full ${single ? "h-96" : "h-48"}`}
         src={image ? image : BrokenImage}
       />

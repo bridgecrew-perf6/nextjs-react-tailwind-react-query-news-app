@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Transition } from "@headlessui/react";
 import SvgLogo from "../assets/speaker.svg";
+import Profile from "../assets/profile.jpg";
 
 const links = [
   { href: "/top-headlines", label: "Top Headlines" },
@@ -39,7 +40,7 @@ export default function Nav({ activeLink = "Top Headlines" }) {
                   <img
                     className="w-16 h-16 transform hover:scale-125"
                     src={SvgLogo}
-                    alt="Workflow"
+                    alt="megaphone speaker logo"
                   />
                 </div>
               </a>
@@ -77,8 +78,8 @@ export default function Nav({ activeLink = "Top Headlines" }) {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="h-8 w-8 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
+                      src={Profile}
+                      alt="Profile image"
                     />
                   </button>
                 </div>
@@ -187,8 +188,8 @@ export default function Nav({ activeLink = "Top Headlines" }) {
             <div className="flex-shrink-0">
               <img
                 className="h-10 w-10 rounded-full"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
+                src={Profile}
+                alt="Profile image"
               />
             </div>
             <div className="ml-3">
