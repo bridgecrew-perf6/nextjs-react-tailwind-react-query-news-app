@@ -4,7 +4,7 @@ import { getTopHeadlines } from "../api/fetchNews";
 
 export default function topHeadlines() {
   // fetch top headlines
-  const { isLoading, isError, data } = useQuery(
+  const { isLoading, isError, error, data } = useQuery(
     "top_headlines",
     getTopHeadlines
   );
@@ -13,6 +13,7 @@ export default function topHeadlines() {
     <FeedTemplate
       isLoading={isLoading}
       isError={isError}
+      error={error}
       data={data}
       homeTemplateTitle="Top Headlines"
       category="headlines"

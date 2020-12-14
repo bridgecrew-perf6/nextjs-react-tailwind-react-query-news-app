@@ -7,6 +7,7 @@ import Error from "./error";
 export default function feedComponent({
   isLoading,
   isError,
+  error,
   data,
   homeTemplateTitle,
   category,
@@ -24,7 +25,7 @@ export default function feedComponent({
   if (isError || data.status === "error") {
     return (
       <HomeTemplate title={homeTemplateTitle} activeLink={homeTemplateTitle}>
-        <Error />
+        <Error error={isError ? error.message : data.message} />
       </HomeTemplate>
     );
   }

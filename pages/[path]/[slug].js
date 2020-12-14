@@ -19,16 +19,18 @@ const Post = () => {
   // fetch top headlines
   // already fetched upstream so will be re-fetched from cache
   const {
-    isLoading: topHeadlinesLoading,
-    isError: topHeadlinesError,
+    isLoading: isTopHeadlinesLoading,
+    isError: isTopHeadlinesError,
+    error: topHeadlinesError,
     data: topHeadlinesData,
   } = useQuery("top_headlines", getTopHeadlines);
 
   // fetch Custom News Feed
   // also fetched upstream so will be re-fetched from cache
   const {
-    isLoading: customNewsFeedLoading,
-    isError: customNewsFeedError,
+    isLoading: isCustomNewsFeedLoading,
+    isError: isCustomNewsFeedError,
+    error: customNewsFeedError,
     data: customNewsFeedData,
   } = useQuery("custom_news_feed", getCustomNewsFeed(PREFERRED_TOPIC));
 
@@ -36,7 +38,7 @@ const Post = () => {
   let templateTitle =
     category === "headlines" ? "Top Headlines" : "Custom News Feed";
 
-  if (topHeadlinesLoading || customNewsFeedLoading) {
+  if (isTopHeadlinesLoading || isCustomNewsFeedLoading) {
     return (
       <HomeTemplate title="Single Post" activeLink={templateTitle}>
         <Loading />
@@ -45,8 +47,8 @@ const Post = () => {
   }
 
   if (
-    topHeadlinesError ||
-    customNewsFeedError ||
+    isTopHeadlinesError ||
+    isCustomNewsFeedError ||
     topHeadlinesData.status === "error" ||
     customNewsFeedData.status === "error" ||
     !topHeadlinesData.articles[pid] ||
@@ -54,7 +56,19 @@ const Post = () => {
   ) {
     return (
       <HomeTemplate title="Single Post" activeLink={templateTitle}>
-        <Error />
+        <Error
+          error={
+            isTopHeadlinesError
+              ? topHeadlinesError.message
+              : isCustomNewsFeedError
+              ? customNewsFeedError.message
+              : topHeadlinesData.status === "error"
+              ? topHeadlinesData.message
+              : customNewsFeedData.status === "error"
+              ? customNewsFeedData.message
+              : "No Article With That Id Found"
+          }
+        />
       </HomeTemplate>
     );
   }
