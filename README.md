@@ -1,5 +1,9 @@
 # Next.js React Tailwind React-Query News Api
 
+[![Project Screenshot 1][product-screenshot-1]](http://www.muguku.co.ke/)
+
+[![Project Screenshot 2][product-screenshot-2]](http://www.muguku.co.ke/)
+
 Display top headlines and custom news topics from the [news.org api](https://newsapi.org/). Stores user preference in local storage.
 
 Deployed on [Netlify Here](https://newsdotorg.netlify.app/top-headlines).
@@ -29,3 +33,6 @@ yarn dev #Run the app on the browser
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+[product-screenshot-1]: screenshots/5.png
+[product-screenshot-2]: screenshots/7.png
