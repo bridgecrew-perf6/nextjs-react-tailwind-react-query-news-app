@@ -34,7 +34,10 @@ export default function customNewsFeed() {
       isError={isError}
       error={error}
       data={data}
-      homeTemplateTitle="Custom News Feed"
+      homeTemplateTitle={`Custom News Feed - (${PREFERRED_TOPIC.charAt(
+        0
+      ).toUpperCase()}${PREFERRED_TOPIC.slice(1)})`}
+      homeTemplateActiveLink="Custom News Feed"
       category="feed"
     />
   );

@@ -16,6 +16,7 @@ export default function topHeadlines() {
       error={error}
       data={data}
       homeTemplateTitle="Top Headlines"
+      homeTemplateActiveLink="Top Headlines"
       category="headlines"
     />
   );

@@ -10,13 +10,17 @@ export default function feedComponent({
   error,
   data,
   homeTemplateTitle,
+  homeTemplateActiveLink,
   category,
 }) {
   const router = useRouter();
 
   if (isLoading) {
     return (
-      <HomeTemplate title={homeTemplateTitle} activeLink={homeTemplateTitle}>
+      <HomeTemplate
+        title={homeTemplateTitle}
+        activeLink={homeTemplateActiveLink}
+      >
         <Loading />
       </HomeTemplate>
     );
@@ -24,14 +28,17 @@ export default function feedComponent({
 
   if (isError || data.status === "error") {
     return (
-      <HomeTemplate title={homeTemplateTitle} activeLink={homeTemplateTitle}>
+      <HomeTemplate
+        title={homeTemplateTitle}
+        activeLink={homeTemplateActiveLink}
+      >
         <Error error={isError ? error.message : data.message} />
       </HomeTemplate>
     );
   }
 
   return (
-    <HomeTemplate title={homeTemplateTitle} activeLink={homeTemplateTitle}>
+    <HomeTemplate title={homeTemplateTitle} activeLink={homeTemplateActiveLink}>
       <div className="flex flex-wrap">
         {/* return columns of articles */}
         {data.articles.map(
