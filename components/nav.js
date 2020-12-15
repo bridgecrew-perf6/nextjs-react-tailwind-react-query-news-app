@@ -13,7 +13,7 @@ export default function Nav({ activeLink = "Top Headlines" }) {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // get preferred topic from local storage
+  // get userName from local storage
   // check for window object incase of SSR
   let USERNAME =
     typeof window !== "undefined" ? localStorage.getItem("userName") : "";
@@ -201,9 +201,11 @@ export default function Nav({ activeLink = "Top Headlines" }) {
               />
             </div>
             <div className="ml-3">
-              <div className="text-base font-medium leading-none text-white">
-                UserName
-              </div>
+              {USERNAME && (
+                <h3 className="text-base text-white font-medium leading-none my-auto">
+                  {USERNAME}
+                </h3>
+              )}
             </div>
           </div>
           <div className="mt-3 px-2 space-y-1">
