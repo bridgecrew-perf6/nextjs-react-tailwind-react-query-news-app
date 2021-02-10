@@ -4,6 +4,8 @@
 
 [![Project Screenshot 2][product-screenshot-2]](http://www.muguku.co.ke/)
 
+[Linked-in post with Video Preview and Project Motivation](https://www.linkedin.com/posts/machariamuguku_nextjs-react-tailwind-news-api-activity-6745270020105875456-HVuH)
+
 Display top headlines and custom news topics from the [news.org api](https://newsapi.org/). Stores user preference in local storage.
 
 Deployed on [Netlify Here](https://newsdotorg.netlify.app/top-headlines).
